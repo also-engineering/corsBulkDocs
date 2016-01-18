@@ -1,5 +1,9 @@
 # decompressor
-sudo apt-get update
+
+if ! $updated_recently; then
+  sudo apt-get update
+  updated_recently=TRUE
+fi
 
 # node
 which_npm=`which npm`
