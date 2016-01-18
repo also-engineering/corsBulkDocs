@@ -1,4 +1,4 @@
-# cors-bulk-docs
+# decompressor
 sudo apt-get update
 
 # node

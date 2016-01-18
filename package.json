@@ -1,5 +1,5 @@
 {
-  "name": "cors-bulk-docs",
+  "name": "decompressor",
   "version": "0.0.0",
   "description": "Recieves compressed uploads from Tangerine-client.",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tangerine-Community/corsBulkDocs.git"
+    "url": "git+https://github.com/Tangerine-Community/decompressor.git"
   },
   "author": "ict-admin@rti.org",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Tangerine-Community/corsBulkDocs/issues"
+    "url": "https://github.com/Tangerine-Community/decompressor/issues"
   },
-  "homepage": "https://github.com/Tangerine-Community/corsBulkDocs#readme",
+  "homepage": "https://github.com/Tangerine-Community/decompressor#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.1",
