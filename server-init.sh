@@ -6,21 +6,13 @@ if ! $updated_recently; then
   export updated_recently=TRUE
 fi
 
-
 # node
 which_node=`which node`
 if [ ! -z "$which_node" ]; then
   echo "node already installed"
 else
-  sudo apt-get install nodejs nodejs-legacy -y
-fi
-
-# npm
-which_npm=`which npm`
-if [ ! -z "$which_npm" ]; then
-  echo "npm already installed"
-elif [ ! -z "$which_npm" ]; then
-  sudo apt-get install npm -y
+  curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+  sudo apt-get install -y nodejs
 fi
 
 npm install
