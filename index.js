@@ -3,6 +3,8 @@
 const Settings = require('./Settings');
 const Conf = require('./Conf');
 
+const unirest = require('unirest');
+
 const express = require('express');
 
 // cors middleware for express
@@ -47,7 +49,7 @@ app.post('/check/:group',
     const group = req.params.group;
     const keys = req.body.keys;
 
-    const url = "http://${Settings.T_ADMIN}:${T_PASS}@${Settings.T_COUCH_HOST}:${T_COUCH_PORT}/group-#{group}/_all_docs"
+    const url = "http://${Settings.T_ADMIN}:${Settings.T_PASS}@${Settings.T_COUCH_HOST}:${Settings.T_COUCH_PORT}/group-#{group}/_all_docs"
 
     unirest.post(url).headers(JSON_OPTS)
       .json({
@@ -68,11 +70,13 @@ app.post('/upload/:group',
   }),
   function(req, res) {
 
+    const group = req.params.group;
+
     const compressedData = req.body;
 
     const decompressed = LZString.decompressFromBase64(compressedData);
 
-    const url = "http://${Settings.T_ADMIN}:${T_PASS}@${Settings.T_COUCH_HOST}:${T_COUCH_PORT}/group-#{group}/_bulk_docs"
+    const url = "http://${Settings.T_ADMIN}:${Settings.T_PASS}@${Settings.T_COUCH_HOST}:${Settings.T_COUCH_PORT}/group-#{group}/_bulk_docs"
 
     unirest.post(url).headers(JSON_OPTS)
       .type('json')
