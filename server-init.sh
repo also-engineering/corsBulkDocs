@@ -1,3 +1,4 @@
+#!/usr/bin/env bash -v
 # decompressor
 
 # apt-get update
