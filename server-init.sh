@@ -1,6 +1,8 @@
 #!/usr/bin/env bash -v
 # decompressor
 
+set -v # set verbose
+
 # apt-get update
 if ! $updated_recently; then
   sudo apt-get update
@@ -8,8 +10,7 @@ if ! $updated_recently; then
 fi
 
 # node
-which_node=`which node`
-if [ ! -z "$which_node" ]; then
+if [ ! -z "`which node`" ]; then
   echo "node already installed"
 else
   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
