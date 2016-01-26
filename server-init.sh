@@ -17,4 +17,6 @@ else
   sudo apt-get install -y nodejs
 fi
 
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $dir
 npm install
