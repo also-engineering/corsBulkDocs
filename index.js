@@ -85,8 +85,8 @@ app.post('/upload/:group',
 );
 
 // kick it off
-const server = app.listen(Settings.T_CORS_BULK_DOCS_PORT, function () {
+const server = app.listen(Settings.T_DECOMPRESSOR_PORT, function () {
   const host = server.address().address;
   const port = server.address().port;
-  console.log('CorsBulkDocs: http://%s:%s', host, port);
+  console.log('Decompressor: http://%s:%s', host, port);
 });

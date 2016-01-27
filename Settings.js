@@ -29,8 +29,8 @@ let requireVars = [
     defaultValue: 'localhost'
   },
   {
-    key: 'T_CORS_BULK_DOCS_PORT',
-    desc: 'Port for the CORS _bulk_docs service.',
+    key: 'T_DECOMPRESSOR_PORT',
+    desc: 'Port for the Decompressor service.',
     defaultValue: 4447
   },
   {
