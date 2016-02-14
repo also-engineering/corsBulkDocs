@@ -61,7 +61,7 @@ app.post('/check/:group', bodyParser.json(), function(req, res) {
 
 // accept a call to _bulk_docs
 app.post('/upload/:group',
-  bodyParser.text({
+  bodyParser.raw({
     limit: 20e6 // 20MB
   }),
   function(req, res) {
@@ -69,8 +69,13 @@ app.post('/upload/:group',
     const group = req.params.group;
 
     const compressedData = req.body;
-    const decompressed = LZString.decompressFromBase64(compressedData);
+    const ab = new ArrayBuffer(compressedData.length);
+    const compressedUint8Data = new Uint8Array(ab);
+    for (let i = 0; i < compressedData.length; ++i) {
+        compressedUint8Data[i] = compressedData[i];
+    }
 
+    const decompressed = LZString.decompressFromUint8Array(compressedUint8Data);
     const url = `http://${Settings.T_ADMIN}:${Settings.T_PASS}@${Settings.T_COUCH_HOST}:${Settings.T_COUCH_PORT}/group-${group}/_bulk_docs`
 
     unirest.post(url).headers(JSON_OPTS)
